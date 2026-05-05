@@ -36,13 +36,13 @@ public class MainDashboard extends javax.swing.JFrame {
         txtProductName = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         btnAddProduct = new javax.swing.JButton();
-        btnUpdateProduct = new javax.swing.JButton();
-        btnDeleteProduct = new javax.swing.JButton();
         cmbEcoRating = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducts = new javax.swing.JTable();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jTabbedPane6 = new javax.swing.JTabbedPane();
+        btnDeleteProduct = new javax.swing.JButton();
+        btnUpdateProduct = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,10 +54,6 @@ public class MainDashboard extends javax.swing.JFrame {
 
         btnAddProduct.setText("Add Product");
         btnAddProduct.addActionListener(this::btnAddProductActionPerformed);
-
-        btnUpdateProduct.setText("Update");
-
-        btnDeleteProduct.setText("Delete");
 
         cmbEcoRating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Highly Sustainable", "Recycled", "Standard", " " }));
         cmbEcoRating.addActionListener(this::cmbEcoRatingActionPerformed);
@@ -78,19 +74,12 @@ public class MainDashboard extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddProduct))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtProductName)
-                            .addComponent(txtPrice)
-                            .addComponent(cmbEcoRating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(btnUpdateProduct)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDeleteProduct)))
-                .addContainerGap(387, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtProductName)
+                    .addComponent(txtPrice)
+                    .addComponent(cmbEcoRating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(425, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,11 +97,8 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(cmbEcoRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddProduct)
-                    .addComponent(btnUpdateProduct)
-                    .addComponent(btnDeleteProduct))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addComponent(btnAddProduct)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Product", jPanel1);
@@ -136,20 +122,37 @@ public class MainDashboard extends javax.swing.JFrame {
         jTabbedPane1.addTab("Manage Cilent", jTabbedPane5);
         jTabbedPane1.addTab("Manage Stock", jTabbedPane6);
 
+        btnDeleteProduct.setText("Delete");
+        btnDeleteProduct.addActionListener(this::btnDeleteProductActionPerformed);
+
+        btnUpdateProduct.setText("Update");
+        btnUpdateProduct.addActionListener(this::btnUpdateProductActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnDeleteProduct)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateProduct)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeleteProduct)
+                    .addComponent(btnUpdateProduct)))
         );
 
         pack();
@@ -187,6 +190,75 @@ public class MainDashboard extends javax.swing.JFrame {
     private void cmbEcoRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEcoRatingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEcoRatingActionPerformed
+
+    private void btnUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProductActionPerformed
+        // TODO add your handling code here:
+        // 1. Find out which row the user selected in the table
+    int selectedRow = tblProducts.getSelectedRow();
+
+    // 2. If no row is selected, selectedRow will be -1. Warn the user!
+    if (selectedRow == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table to update!");
+        return;
+    }
+
+    // 3. Get the new typed data from the text fields
+    String newName = txtProductName.getText();
+    String newPrice = txtPrice.getText();
+    String newEcoRating = cmbEcoRating.getSelectedItem().toString();
+
+    // 4. Validate that they didn't leave it blank
+    if (newName.isEmpty() || newPrice.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Fields cannot be empty!");
+        return;
+    }
+
+    // 5. Update the specific row and columns in the table model
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
+    
+    // model.setValueAt(Data, Row, Column Index)
+    // Remember: ID is column 0, Name is 1, Price is 2, Eco-Rating is 3
+    model.setValueAt(newName, selectedRow, 1);
+    model.setValueAt(newPrice, selectedRow, 2);
+    model.setValueAt(newEcoRating, selectedRow, 3);
+
+    javax.swing.JOptionPane.showMessageDialog(this, "Product Updated Successfully!");
+
+    // 6. Clear the text fields
+    txtProductName.setText("");
+    txtPrice.setText("");
+    cmbEcoRating.setSelectedIndex(0);
+    }//GEN-LAST:event_btnUpdateProductActionPerformed
+
+    private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
+        // 1. Find out which row the user selected
+    int selectedRow = tblProducts.getSelectedRow();
+
+    // 2. Warn them if they didn't select anything
+    if (selectedRow == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table to delete!");
+        return;
+    }
+
+    // 3. Ask for confirmation before deleting
+    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "Are you sure you want to delete this product?", 
+            "Confirm Delete", 
+            javax.swing.JOptionPane.YES_NO_OPTION);
+    
+    // 4. If they clicked "Yes", remove the row
+    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
+        model.removeRow(selectedRow);
+        
+        javax.swing.JOptionPane.showMessageDialog(this, "Product Deleted!");
+        
+        // Clear the text fields just in case
+        txtProductName.setText("");
+        txtPrice.setText("");
+        cmbEcoRating.setSelectedIndex(0);
+    }
+    }//GEN-LAST:event_btnDeleteProductActionPerformed
 
     /**
      * @param args the command line arguments
