@@ -34,8 +34,13 @@ public class MainDashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtProductName = new javax.swing.JTextField();
-        cmbEcoRating = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
+        btnAddProduct = new javax.swing.JButton();
+        btnUpdateProduct = new javax.swing.JButton();
+        btnDeleteProduct = new javax.swing.JButton();
+        cmbEcoRating = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProducts = new javax.swing.JTable();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jTabbedPane6 = new javax.swing.JTabbedPane();
 
@@ -47,6 +52,14 @@ public class MainDashboard extends javax.swing.JFrame {
 
         jLabel3.setText("Eco-Rating:");
 
+        btnAddProduct.setText("Add Product");
+        btnAddProduct.addActionListener(this::btnAddProductActionPerformed);
+
+        btnUpdateProduct.setText("Update");
+
+        btnDeleteProduct.setText("Delete");
+
+        cmbEcoRating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Highly Sustainable", "Recycled", "Standard", " " }));
         cmbEcoRating.addActionListener(this::cmbEcoRatingActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -55,20 +68,29 @@ public class MainDashboard extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddProduct))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbEcoRating, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(152, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtProductName)
+                            .addComponent(txtPrice)
+                            .addComponent(cmbEcoRating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(btnUpdateProduct)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteProduct)))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,10 +107,30 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cmbEcoRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddProduct)
+                    .addComponent(btnUpdateProduct)
+                    .addComponent(btnDeleteProduct))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Product", jPanel1);
+
+        tblProducts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Product Name", "Price", "Eco-Rating"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProducts);
+
+        jTabbedPane2.addTab("Products", jScrollPane1);
 
         jTabbedPane1.addTab("Manage Product", jTabbedPane2);
         jTabbedPane1.addTab("Manage Cilent", jTabbedPane5);
@@ -106,12 +148,41 @@ public class MainDashboard extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        // TODO add your handling code here:
+
+    // 1. Get the data from your text fields and dropdown
+    String name = txtProductName.getText();
+    String price = txtPrice.getText();
+    String ecoRating = cmbEcoRating.getSelectedItem().toString();
+
+    // 2. Simple validation (Make sure fields aren't empty)
+    if (name.isEmpty() || price.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all fields!");
+        return; 
+    }
+
+    // 3. Add the data to the Table
+    // We get the "Model" of the table, which holds the rows and columns
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
+    
+    // We create an array representing a new row. 
+    // (Note: ID is hardcoded as "1" for now until we connect the database)
+    model.addRow(new Object[]{ "1", name, price, ecoRating });
+
+    // 4. Clear the text fields so they are ready for the next product
+    txtProductName.setText("");
+    txtPrice.setText("");
+    cmbEcoRating.setSelectedIndex(0);
+   
+    }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void cmbEcoRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEcoRatingActionPerformed
         // TODO add your handling code here:
@@ -143,15 +214,20 @@ public class MainDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cmbEcoRating;
+    private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnDeleteProduct;
+    private javax.swing.JButton btnUpdateProduct;
+    private javax.swing.JComboBox<String> cmbEcoRating;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JTable tblProducts;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProductName;
     // End of variables declaration//GEN-END:variables

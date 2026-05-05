@@ -112,14 +112,19 @@ public class LoginScreen extends javax.swing.JFrame {
 
     // 2. Check credentials (Hardcoded for now, database later)
     if (username.equals("admin") && password.equals("admin123")) {
-        // Show success popup
-        javax.swing.JOptionPane.showMessageDialog(this, "Login Successful!");
+    // Open the Main Dashboard
+    MainDashboard dashboard = new MainDashboard(); 
+    dashboard.setVisible(true);
+    this.dispose();
+    
+    // Close the login window 
+}
         
         // 3. Open the Main Dashboard and close Login
         // MainDashboard dashboard = new MainDashboard(); 
         // dashboard.setVisible(true);
         // this.dispose(); // Closes the login window
-    } else {
+     else {
         // Show error popup
         javax.swing.JOptionPane.showMessageDialog(this, "Invalid Credentials", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
     }
