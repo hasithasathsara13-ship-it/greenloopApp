@@ -37,12 +37,31 @@ public class MainDashboard extends javax.swing.JFrame {
         txtPrice = new javax.swing.JTextField();
         btnAddProduct = new javax.swing.JButton();
         cmbEcoRating = new javax.swing.JComboBox<>();
+        btnDeleteProduct = new javax.swing.JButton();
+        btnUpdateProduct = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducts = new javax.swing.JTable();
         jTabbedPane5 = new javax.swing.JTabbedPane();
-        jTabbedPane6 = new javax.swing.JTabbedPane();
-        btnDeleteProduct = new javax.swing.JButton();
-        btnUpdateProduct = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        emailBox = new javax.swing.JTextField();
+        nameBox = new javax.swing.JTextField();
+        contactBox = new javax.swing.JTextField();
+        addClientBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblClient = new javax.swing.JTable();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        txtAddQty = new javax.swing.JTextField();
+        txtSupplier = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblStock = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +76,12 @@ public class MainDashboard extends javax.swing.JFrame {
 
         cmbEcoRating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Highly Sustainable", "Recycled", "Standard", " " }));
         cmbEcoRating.addActionListener(this::cmbEcoRatingActionPerformed);
+
+        btnDeleteProduct.setText("Delete");
+        btnDeleteProduct.addActionListener(this::btnDeleteProductActionPerformed);
+
+        btnUpdateProduct.setText("Update");
+        btnUpdateProduct.addActionListener(this::btnUpdateProductActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,12 +99,19 @@ public class MainDashboard extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddProduct))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtProductName)
-                    .addComponent(txtPrice)
-                    .addComponent(cmbEcoRating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(425, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtProductName)
+                            .addComponent(txtPrice)
+                            .addComponent(cmbEcoRating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnDeleteProduct)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateProduct)))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,8 +129,11 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(cmbEcoRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnAddProduct)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddProduct)
+                    .addComponent(btnDeleteProduct)
+                    .addComponent(btnUpdateProduct))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Product", jPanel1);
@@ -119,14 +154,151 @@ public class MainDashboard extends javax.swing.JFrame {
         jTabbedPane2.addTab("Products", jScrollPane1);
 
         jTabbedPane1.addTab("Manage Product", jTabbedPane2);
+
+        jLabel4.setText("Name: ");
+
+        jLabel5.setText("Email: ");
+
+        jLabel6.setText("Contact Number: ");
+
+        emailBox.addActionListener(this::emailBoxActionPerformed);
+
+        nameBox.addActionListener(this::nameBoxActionPerformed);
+
+        contactBox.addActionListener(this::contactBoxActionPerformed);
+
+        addClientBtn.setText("Add Client");
+        addClientBtn.addActionListener(this::addClientBtnActionPerformed);
+
+        deleteBtn.setText("Delete");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addClientBtn))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteBtn)
+                    .addComponent(contactBox, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailBox, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(377, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(emailBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(contactBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addClientBtn)
+                    .addComponent(deleteBtn))
+                .addContainerGap(207, Short.MAX_VALUE))
+        );
+
+        jTabbedPane5.addTab("Add Client", jPanel2);
+
+        tblClient.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Email", "Contact"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblClient);
+
+        jTabbedPane5.addTab("Clients", jScrollPane2);
+
         jTabbedPane1.addTab("Manage Cilent", jTabbedPane5);
-        jTabbedPane1.addTab("Manage Stock", jTabbedPane6);
 
-        btnDeleteProduct.setText("Delete");
-        btnDeleteProduct.addActionListener(this::btnDeleteProductActionPerformed);
+        jLabel7.setText("Quantity to Add:");
 
-        btnUpdateProduct.setText("Update");
-        btnUpdateProduct.addActionListener(this::btnUpdateProductActionPerformed);
+        jLabel8.setText("Supplier Name:");
+
+        jButton1.setText("Stock-In");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSupplier))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAddQty, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(407, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAddQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(229, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("Edit Stocks", jPanel3);
+
+        tblStock.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Product Name", "Reorder Level", "Qty on Hand", "Status", "Last Supplier"
+            }
+        ));
+        jScrollPane3.setViewportView(tblStock);
+
+        jTabbedPane3.addTab("Stocks", jScrollPane3);
+
+        jTabbedPane1.addTab("Manage Stocks", jTabbedPane3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,131 +306,222 @@ public class MainDashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnDeleteProduct)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUpdateProduct)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1)
-                        .addContainerGap())))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteProduct)
-                    .addComponent(btnUpdateProduct)))
+                .addGap(17, 17, 17)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+    private void addClientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientBtnActionPerformed
+        // 1. Get the text from the fields
+        String name = nameBox.getText();
+        String email = emailBox.getText();
+        String contact = contactBox.getText();
+
+        // 2. Validate that no fields are left empty
+        if (name.isEmpty() || email.isEmpty() || contact.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all client details!", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // 3. Add the data to the Table
+        // We get the "Model" of the table, which holds the rows and columns
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblClient.getModel();
+
+        // Create an array for the new row. (ID is hardcoded as "C-001" for now)
+        model.addRow(new Object[]{ "C-001", name, email, contact });
+
+        // 4. Show a success message
+        javax.swing.JOptionPane.showMessageDialog(this, "Client Added Successfully!");
+
+        // 5. Clear the text fields for the next entry
+        nameBox.setText("");
+        emailBox.setText("");
+        contactBox.setText("");
+
+        // 6. PRO TIP: Automatically switch to the "Clients" table tab to see the new entry!
+        // (If you named your inner tabbed pane 'innerTabbedPane', uncomment the line below)
+        // innerTabbedPane.setSelectedIndex(1);
         // TODO add your handling code here:
+    }//GEN-LAST:event_addClientBtnActionPerformed
 
-    // 1. Get the data from your text fields and dropdown
-    String name = txtProductName.getText();
-    String price = txtPrice.getText();
-    String ecoRating = cmbEcoRating.getSelectedItem().toString();
+    private void contactBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactBoxActionPerformed
 
-    // 2. Simple validation (Make sure fields aren't empty)
-    if (name.isEmpty() || price.isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all fields!");
-        return; 
-    }
+    private void nameBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameBoxActionPerformed
 
-    // 3. Add the data to the Table
-    // We get the "Model" of the table, which holds the rows and columns
-    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
-    
-    // We create an array representing a new row. 
-    // (Note: ID is hardcoded as "1" for now until we connect the database)
-    model.addRow(new Object[]{ "1", name, price, ecoRating });
+    private void emailBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailBoxActionPerformed
 
-    // 4. Clear the text fields so they are ready for the next product
-    txtProductName.setText("");
-    txtPrice.setText("");
-    cmbEcoRating.setSelectedIndex(0);
-   
-    }//GEN-LAST:event_btnAddProductActionPerformed
+    private void btnUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProductActionPerformed
+        // TODO add your handling code here:
+        // 1. Find out which row the user selected in the table
+        int selectedRow = tblProducts.getSelectedRow();
+
+        // 2. If no row is selected, selectedRow will be -1. Warn the user!
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table to update!");
+            return;
+        }
+
+        // 3. Get the new typed data from the text fields
+        String newName = txtProductName.getText();
+        String newPrice = txtPrice.getText();
+        String newEcoRating = cmbEcoRating.getSelectedItem().toString();
+
+        // 4. Validate that they didn't leave it blank
+        if (newName.isEmpty() || newPrice.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Fields cannot be empty!");
+            return;
+        }
+
+        // 5. Update the specific row and columns in the table model
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
+
+        // model.setValueAt(Data, Row, Column Index)
+        // Remember: ID is column 0, Name is 1, Price is 2, Eco-Rating is 3
+        model.setValueAt(newName, selectedRow, 1);
+        model.setValueAt(newPrice, selectedRow, 2);
+        model.setValueAt(newEcoRating, selectedRow, 3);
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Product Updated Successfully!");
+
+        // 6. Clear the text fields
+        txtProductName.setText("");
+        txtPrice.setText("");
+        cmbEcoRating.setSelectedIndex(0);
+    }//GEN-LAST:event_btnUpdateProductActionPerformed
+
+    private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
+        // 1. Find out which row the user selected
+        int selectedRow = tblProducts.getSelectedRow();
+
+        // 2. Warn them if they didn't select anything
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table to delete!");
+            return;
+        }
+
+        // 3. Ask for confirmation before deleting
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
+            "Are you sure you want to delete this product?",
+            "Confirm Delete",
+            javax.swing.JOptionPane.YES_NO_OPTION);
+
+        // 4. If they clicked "Yes", remove the row
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
+            model.removeRow(selectedRow);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Product Deleted!");
+
+            // Clear the text fields just in case
+            txtProductName.setText("");
+            txtPrice.setText("");
+            cmbEcoRating.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_btnDeleteProductActionPerformed
 
     private void cmbEcoRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEcoRatingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEcoRatingActionPerformed
 
-    private void btnUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProductActionPerformed
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
         // TODO add your handling code here:
-        // 1. Find out which row the user selected in the table
-    int selectedRow = tblProducts.getSelectedRow();
 
-    // 2. If no row is selected, selectedRow will be -1. Warn the user!
-    if (selectedRow == -1) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table to update!");
-        return;
-    }
+        // 1. Get the data from your text fields and dropdown
+        String name = txtProductName.getText();
+        String price = txtPrice.getText();
+        String ecoRating = cmbEcoRating.getSelectedItem().toString();
 
-    // 3. Get the new typed data from the text fields
-    String newName = txtProductName.getText();
-    String newPrice = txtPrice.getText();
-    String newEcoRating = cmbEcoRating.getSelectedItem().toString();
+        // 2. Simple validation (Make sure fields aren't empty)
+        if (name.isEmpty() || price.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all fields!");
+            return;
+        }
 
-    // 4. Validate that they didn't leave it blank
-    if (newName.isEmpty() || newPrice.isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Fields cannot be empty!");
-        return;
-    }
-
-    // 5. Update the specific row and columns in the table model
-    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
-    
-    // model.setValueAt(Data, Row, Column Index)
-    // Remember: ID is column 0, Name is 1, Price is 2, Eco-Rating is 3
-    model.setValueAt(newName, selectedRow, 1);
-    model.setValueAt(newPrice, selectedRow, 2);
-    model.setValueAt(newEcoRating, selectedRow, 3);
-
-    javax.swing.JOptionPane.showMessageDialog(this, "Product Updated Successfully!");
-
-    // 6. Clear the text fields
-    txtProductName.setText("");
-    txtPrice.setText("");
-    cmbEcoRating.setSelectedIndex(0);
-    }//GEN-LAST:event_btnUpdateProductActionPerformed
-
-    private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
-        // 1. Find out which row the user selected
-    int selectedRow = tblProducts.getSelectedRow();
-
-    // 2. Warn them if they didn't select anything
-    if (selectedRow == -1) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table to delete!");
-        return;
-    }
-
-    // 3. Ask for confirmation before deleting
-    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
-            "Are you sure you want to delete this product?", 
-            "Confirm Delete", 
-            javax.swing.JOptionPane.YES_NO_OPTION);
-    
-    // 4. If they clicked "Yes", remove the row
-    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+        // 3. Add the data to the Table
+        // We get the "Model" of the table, which holds the rows and columns
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblProducts.getModel();
-        model.removeRow(selectedRow);
-        
-        javax.swing.JOptionPane.showMessageDialog(this, "Product Deleted!");
-        
-        // Clear the text fields just in case
+
+        // We create an array representing a new row.
+        // (Note: ID is hardcoded as "1" for now until we connect the database)
+        model.addRow(new Object[]{ "1", name, price, ecoRating });
+
+        // 4. Clear the text fields so they are ready for the next product
         txtProductName.setText("");
         txtPrice.setText("");
         cmbEcoRating.setSelectedIndex(0);
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // 1. Find out which product the user selected in the table
+    int selectedRow = tblStock.getSelectedRow();
+
+    // 2. Warn them if they didn't select anything
+    if (selectedRow == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please select a product from the table first!", "Selection Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
     }
-    }//GEN-LAST:event_btnDeleteProductActionPerformed
+
+    // 3. Get the inputs
+    String qtyString = txtAddQty.getText();
+    String supplier = txtSupplier.getText();
+
+    if (qtyString.isEmpty() || supplier.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please enter both Quantity and Supplier!");
+        return;
+    }
+
+    // 4. Do the math and update the table
+    try {
+        // Convert the typed text into an integer (math number)
+        int qtyToAdd = Integer.parseInt(qtyString);
+
+        // Get the table model
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblStock.getModel();
+
+        // Get the CURRENT quantity from the table (Assuming Qty is Column index 2)
+        // Note: In Java tables, the first column is 0, second is 1, third is 2.
+        int currentQty = Integer.parseInt(model.getValueAt(selectedRow, 2).toString());
+        
+        // Calculate the new total
+        int newQty = currentQty + qtyToAdd;
+
+        // Update the Quantity column (Index 2) and Supplier column (Index 4)
+        model.setValueAt(newQty, selectedRow, 2);
+        model.setValueAt(supplier, selectedRow, 4);
+        
+        // Bonus: Update Status column (Index 3) based on Reorder Level (Index 1)
+        int reorderLevel = Integer.parseInt(model.getValueAt(selectedRow, 1).toString());
+        if (newQty > reorderLevel) {
+            model.setValueAt("In Stock", selectedRow, 3);
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Stock Successfully Added!");
+
+        // 5. Clear the text fields
+        txtAddQty.setText("");
+        txtSupplier.setText("");
+
+    } catch (NumberFormatException e) {
+        // This catches the error if the user typed "Ten" instead of "10"
+        javax.swing.JOptionPane.showMessageDialog(this, "Quantity must be a valid number!", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,21 +549,40 @@ public class MainDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addClientBtn;
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnDeleteProduct;
     private javax.swing.JButton btnUpdateProduct;
     private javax.swing.JComboBox<String> cmbEcoRating;
+    private javax.swing.JTextField contactBox;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTextField emailBox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JTextField nameBox;
+    private javax.swing.JTable tblClient;
     private javax.swing.JTable tblProducts;
+    private javax.swing.JTable tblStock;
+    private javax.swing.JTextField txtAddQty;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProductName;
+    private javax.swing.JTextField txtSupplier;
     // End of variables declaration//GEN-END:variables
 }
